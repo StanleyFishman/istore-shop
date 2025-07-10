@@ -21,4 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
     radios.forEach((radio, idx) => {
         radio.addEventListener('click', () => showSlide(idx));
     });
+
+    const requestBtn = document.querySelector('.request-btn');
+    const modal = document.getElementById('request-modal');
+    const closeModal = document.querySelector('.close-modal');
+
+    if (requestBtn && modal && closeModal) {
+        requestBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
 });
