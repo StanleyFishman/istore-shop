@@ -15,6 +15,18 @@
             <li><a href="delivery.html">Доставка</a></li>
             <li><a href="contacts.html">Контакты</a></li>
         </ul>
+        <div class="navbar-right">
+            <a href="https://wa.me/" class="icon-btn" target="_blank">
+                <img src="assets/images/whatsapp.svg" alt="WhatsApp">
+            </a>
+            <a href="https://t.me/" class="icon-btn" target="_blank">
+                <img src="assets/images/telegram.svg" alt="Telegram">
+            </a>
+            <a href="https://vk.com" class="icon-btn" target="_blank">
+                <img src="assets/images/vk.svg" alt="VK">
+            </a>
+            <button class="request-btn">Оставить заявку</button>
+        </div>
     </header>
 
     <div class="container">
@@ -27,6 +39,21 @@
     <footer>
         <p>&copy; 2024 iStore. Все права защищены.</p>
     </footer>
+
+    <div id="request-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2>Оставьте заявку</h2>
+            <p>В течение 30 минут , в рабочее время с вами свяжется менеджер нашего магазина</p>
+            <form>
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Ваш телефон" required>
+                <button type="submit">Отправить</button>
+            </form>
+            <small>Нажимая на кнопку "Отправить" вы соглашаетесь с правилами обработки персональных данных</small>
+        </div>
+    </div>
+
     <script src="assets/script.js"></script>
 </body>
 </html>
