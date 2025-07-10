@@ -306,11 +306,6 @@ footer {
     margin: 10px 0;
     display: none;
   }
-
-  header.open .navbar {
-    display: flex;
-  }
-
   .navbar-right {
     width: 100%;
     margin-top: 10px;
