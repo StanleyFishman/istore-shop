@@ -112,7 +112,7 @@ section {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -284,7 +284,16 @@ footer {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (max-width: 960px) {
+  .container {
+    max-width: 640px;
+  }
   header {
     flex-direction: column;
     align-items: flex-start;
@@ -325,7 +334,16 @@ footer {
   }
 }
 
+@media (max-width: 640px) {
+  .container {
+    max-width: 480px;
+  }
+}
+
 @media (max-width: 480px) {
+  .container {
+    max-width: 320px;
+  }
   .catalog {
     grid-template-columns: 1fr;
   }
@@ -337,5 +355,11 @@ footer {
   .product-image,
   .review-card img {
     height: 120px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 10px;
   }
 }
