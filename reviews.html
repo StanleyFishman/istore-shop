@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Отзывы</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header>
+      <ul class="navbar">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="reviews.html">Отзывы</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+      <div class="navbar-right">
+        <a href="https://wa.me/" class="icon-btn" target="_blank">
+          <img src="assets/images/whatsapp.svg" alt="WhatsApp" />
+        </a>
+        <a href="https://t.me/" class="icon-btn" target="_blank">
+          <img src="assets/images/telegram.svg" alt="Telegram" />
+        </a>
+        <a href="https://vk.com" class="icon-btn" target="_blank">
+          <img src="assets/images/vk.svg" alt="VK" />
+        </a>
+        <button class="request-btn">Оставить заявку</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <h1>Отзывы</h1>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <img src="assets/images/review1.jpg" alt="Антон Петров" />
+          <h3>Антон Петров</h3>
+          <p>Отличный магазин , отдельная благодарность менеджеру Руслану )</p>
+        </div>
+        <div class="review-card">
+          <img src="assets/images/review2.jpg" alt="Lida Kochurova" />
+          <h3>Lida Kochurova</h3>
+          <p>
+            Большой выбор, приятные цены, менеджер Руслан грамотно
+            проконсультировал, помог с выбором. Быстро оформили рассрочку и ушли
+            довольные с обновочкой! Всем рекомендую!
+          </p>
+        </div>
+        <div class="review-card">
+          <img src="assets/images/review3.jpg" alt="Салават Рахимкулов" />
+          <h3>Салават Рахимкулов</h3>
+          <p>
+            Очень понравился магазин,остался довольный обслуживанием,всё
+            подробно объяснили и помогли с выбором
+          </p>
+        </div>
+        <div class="review-card">
+          <img src="assets/images/review4.jpg" alt="Мария Панина" />
+          <h3>Мария Панина</h3>
+          <p>
+            Отличный магазин!!! Хочется возвращаться снова и снова!!!
+            Приветливый и грамотный персонал, уютная и добрая атмосфера!!!
+            Довольна ценой! Обязательно буду рекомендовать друзьям и близким!!!
+          </p>
+        </div>
+        <div class="review-card">
+          <img src="assets/images/review5.jpg" alt="Артур Лукманов" />
+          <h3>Артур Лукманов</h3>
+          <p>
+            Приобрел у них телефон,самые низкие цены в городе только у
+            них,вежливый персонал. Советую всем
+          </p>
+        </div>
+        <div class="review-card">
+          <img src="assets/images/review6.jpg" alt="Эльвина Ишкильдина" />
+          <h3>Эльвина Ишкильдина</h3>
+          <p>
+            Взяли 11 айфон , понравилось обслуживание, мало где хорошо объясняют
+            разницу между моделями, решили остановится на этом варианте, спасибо
+            консультанту
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 iStore. Все права защищены.</p>
+    </footer>
+
+    <div id="request-modal" class="modal">
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        <h2>Оставьте заявку</h2>
+        <p>
+          В течение 30 минут , в рабочее время с вами свяжется менеджер нашего
+          магазина
+        </p>
+        <form>
+          <input type="text" placeholder="Ваше имя" required />
+          <input type="tel" placeholder="Ваш телефон" required />
+          <button type="submit">Отправить</button>
+        </form>
+        <small
+          >Нажимая на кнопку "Отправить" вы соглашаетесь с правилами обработки
+          персональных данных</small
+        >
+      </div>
+    </div>
+
+    <script src="assets/script.js"></script>
+  </body>
+</html>
