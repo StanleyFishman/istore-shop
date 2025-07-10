@@ -1,129 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>iStore Landing</title>
-    <link rel="stylesheet" href="assets/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
     <header>
-        <ul class="navbar">
-            <li><a href="#home">Главная</a></li>
-            <li><a href="#catalog">Каталог</a></li>
-            <li><a href="#about">О нас</a></li>
-            <li><a href="#delivery">Доставка</a></li>
-            <li><a href="#contacts">Контакты</a></li>
-        </ul>
-        <div class="navbar-right">
-            <a href="https://wa.me/" class="icon-btn" target="_blank">
-                <img src="assets/images/whatsapp.svg" alt="WhatsApp">
-            </a>
-            <a href="https://t.me/" class="icon-btn" target="_blank">
-                <img src="assets/images/telegram.svg" alt="Telegram">
-            </a>
-            <a href="https://vk.com" class="icon-btn" target="_blank">
-                <img src="assets/images/vk.svg" alt="VK">
-            </a>
-            <button class="request-btn">Оставить заявку</button>
-        </div>
+      <ul class="navbar">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <div class="navbar-right">
+        <a href="https://wa.me/" class="icon-btn" target="_blank">
+          <img src="assets/images/whatsapp.svg" alt="WhatsApp" />
+        </a>
+        <a href="https://t.me/" class="icon-btn" target="_blank">
+          <img src="assets/images/telegram.svg" alt="Telegram" />
+        </a>
+        <a href="https://vk.com" class="icon-btn" target="_blank">
+          <img src="assets/images/vk.svg" alt="VK" />
+        </a>
+        <button class="request-btn">Оставить заявку</button>
+      </div>
     </header>
 
     <section id="home" class="hero">
-        <div class="slider">
-            <img src="assets/images/slide1.png" class="slide active" alt="Слайд 1">
-            <img src="assets/images/slide2.png" class="slide" alt="Слайд 2">
-            <img src="assets/images/slide3.png" class="slide" alt="Слайд 3">
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-            <div class="radio-buttons">
-                <input type="radio" name="slider" checked data-index="0">
-                <input type="radio" name="slider" data-index="1">
-                <input type="radio" name="slider" data-index="2">
-            </div>
+      <div class="slider">
+        <img
+          src="assets/images/slide1.png"
+          class="slide active"
+          alt="Слайд 1"
+        />
+        <img src="assets/images/slide2.png" class="slide" alt="Слайд 2" />
+        <img src="assets/images/slide3.png" class="slide" alt="Слайд 3" />
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+        <div class="radio-buttons">
+          <input type="radio" name="slider" checked data-index="0" />
+          <input type="radio" name="slider" data-index="1" />
+          <input type="radio" name="slider" data-index="2" />
         </div>
+      </div>
     </section>
 
     <div class="container">
-        <h2>Новые поступления</h2>
-        <p>Скоро здесь появятся наши топовые товары.</p>
+      <h2>Новые поступления</h2>
+      <p>Скоро здесь появятся наши топовые товары.</p>
     </div>
 
     <section id="catalog">
-        <div class="container">
-            <h2>Каталог товаров</h2>
-            <div class="catalog">
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <h3>Смартфон X1</h3>
-                    <p>Современный дизайн и высокая производительность.</p>
-                    <strong>₽ 49&nbsp;990</strong>
-                </div>
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <h3>Наушники Y2</h3>
-                    <p>Качественный звук в компактном корпусе.</p>
-                    <strong>₽ 6&nbsp;990</strong>
-                </div>
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <h3>Планшет Z3</h3>
-                    <p>Широкий экран и ёмкая батарея для работы и игр.</p>
-                    <strong>₽ 29&nbsp;990</strong>
-                </div>
-                <div class="product-card">
-                    <div class="product-image"></div>
-                    <h3>Смарт-часы W4</h3>
-                    <p>Отслеживание активности и уведомления на запястье.</p>
-                    <strong>₽ 14&nbsp;990</strong>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Каталог товаров</h2>
+        <div class="catalog">
+          <div class="product-card">
+            <div class="product-image"></div>
+            <h3>Смартфон X1</h3>
+            <p>Современный дизайн и высокая производительность.</p>
+            <strong>₽ 49&nbsp;990</strong>
+          </div>
+          <div class="product-card">
+            <div class="product-image"></div>
+            <h3>Наушники Y2</h3>
+            <p>Качественный звук в компактном корпусе.</p>
+            <strong>₽ 6&nbsp;990</strong>
+          </div>
+          <div class="product-card">
+            <div class="product-image"></div>
+            <h3>Планшет Z3</h3>
+            <p>Широкий экран и ёмкая батарея для работы и игр.</p>
+            <strong>₽ 29&nbsp;990</strong>
+          </div>
+          <div class="product-card">
+            <div class="product-image"></div>
+            <h3>Смарт-часы W4</h3>
+            <p>Отслеживание активности и уведомления на запястье.</p>
+            <strong>₽ 14&nbsp;990</strong>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="about">
-        <div class="container">
-            <h2>О магазине</h2>
-            <p>Мы специализируемся на продаже современной техники и аксессуаров.
-            Наша команда стремится предложить клиентам лучшие устройства по доступным ценам.
-            В ближайшее время здесь появится больше информации о нашей компании.</p>
-        </div>
+      <div class="container">
+        <h2>О магазине</h2>
+        <p>
+          Мы специализируемся на продаже современной техники и аксессуаров. Наша
+          команда стремится предложить клиентам лучшие устройства по доступным
+          ценам. В ближайшее время здесь появится больше информации о нашей
+          компании.
+        </p>
+      </div>
     </section>
 
-    <section id="delivery">
-        <div class="container">
-            <h2>Условия доставки</h2>
-            <p>Мы организуем доставку по всей России. Стоимость и сроки зависят от региона и выбранного способа.</p>
-            <p>Подробная информация будет добавлена позже.</p>
+    <section id="reviews">
+      <div class="container">
+        <h2>Отзывы</h2>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <img src="assets/images/review1.jpg" alt="Антон Петров" />
+            <h3>Антон Петров</h3>
+            <p>
+              Отличный магазин , отдельная благодарность менеджеру Руслану )
+            </p>
+          </div>
+          <div class="review-card">
+            <img src="assets/images/review2.jpg" alt="Lida Kochurova" />
+            <h3>Lida Kochurova</h3>
+            <p>
+              Большой выбор, приятные цены, менеджер Руслан грамотно
+              проконсультировал, помог с выбором. Быстро оформили рассрочку и
+              ушли довольные с обновочкой! Всем рекомендую!
+            </p>
+          </div>
+          <div class="review-card">
+            <img src="assets/images/review3.jpg" alt="Салават Рахимкулов" />
+            <h3>Салават Рахимкулов</h3>
+            <p>
+              Очень понравился магазин,остался довольный обслуживанием,всё
+              подробно объяснили и помогли с выбором
+            </p>
+          </div>
+          <div class="review-card">
+            <img src="assets/images/review4.jpg" alt="Мария Панина" />
+            <h3>Мария Панина</h3>
+            <p>
+              Отличный магазин!!! Хочется возвращаться снова и снова!!!
+              Приветливый и грамотный персонал, уютная и добрая атмосфера!!!
+              Довольна ценой! Обязательно буду рекомендовать друзьям и
+              близким!!!
+            </p>
+          </div>
+          <div class="review-card">
+            <img src="assets/images/review5.jpg" alt="Артур Лукманов" />
+            <h3>Артур Лукманов</h3>
+            <p>
+              Приобрел у них телефон,самые низкие цены в городе только у
+              них,вежливый персонал. Советую всем
+            </p>
+          </div>
+          <div class="review-card">
+            <img src="assets/images/review6.jpg" alt="Эльвина Ишкильдина" />
+            <h3>Эльвина Ишкильдина</h3>
+            <p>
+              Взяли 11 айфон , понравилось обслуживание, мало где хорошо
+              объясняют разницу между моделями, решили остановится на этом
+              варианте, спасибо консультанту
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <section id="contacts">
-        <div class="container">
-            <h2>Свяжитесь с нами</h2>
-            <p>Телефон: +7 (800) 000-00-00</p>
-            <p>Email: info@istore.ru</p>
-        </div>
+      <div class="container">
+        <h2>Свяжитесь с нами</h2>
+        <p>Телефон: +7 (800) 000-00-00</p>
+        <p>Email: info@istore.ru</p>
+      </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 iStore. Все права защищены.</p>
+      <p>&copy; 2024 iStore. Все права защищены.</p>
     </footer>
 
     <div id="request-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2>Оставьте заявку</h2>
-            <p>В течение 30 минут , в рабочее время с вами свяжется менеджер нашего магазина</p>
-            <form>
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="tel" placeholder="Ваш телефон" required>
-                <button type="submit">Отправить</button>
-            </form>
-            <small>Нажимая на кнопку "Отправить" вы соглашаетесь с правилами обработки персональных данных</small>
-        </div>
+      <div class="modal-content">
+        <button class="close-modal">&times;</button>
+        <h2>Оставьте заявку</h2>
+        <p>
+          В течение 30 минут , в рабочее время с вами свяжется менеджер нашего
+          магазина
+        </p>
+        <form>
+          <input type="text" placeholder="Ваше имя" required />
+          <input type="tel" placeholder="Ваш телефон" required />
+          <button type="submit">Отправить</button>
+        </form>
+        <small
+          >Нажимая на кнопку "Отправить" вы соглашаетесь с правилами обработки
+          персональных данных</small
+        >
+      </div>
     </div>
 
     <script src="assets/script.js"></script>
-</body>
+  </body>
 </html>
