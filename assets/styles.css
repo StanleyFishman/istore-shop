@@ -48,9 +48,65 @@ section {
 }
 
 .hero {
+    padding: 0;
+    position: relative;
+}
+
+.slider {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.slider .prev {
+    left: 10px;
+}
+
+.slider .next {
+    right: 10px;
+}
+
+.radio-buttons {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
     text-align: center;
-    padding: 60px 20px;
-    background-color: #eee;
+}
+
+.radio-buttons input[type="radio"] {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin: 0 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.radio-buttons input[type="radio"]:checked {
+    background: #fff;
 }
 
 .container {
