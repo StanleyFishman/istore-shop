@@ -2,11 +2,48 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --color-bg: #FFFFFF;
+  --color-text: #333333;
+  --color-primary: #0057B8;
+  --color-accent: #FF6A00;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
 }
 
 header {
@@ -36,17 +73,17 @@ header {
 
 .navbar a {
   text-decoration: none;
-  color: #333;
+  color: var(--color-primary);
   font-weight: bold;
   padding: 8px 12px;
 }
 
 .navbar a:hover {
-  color: #ff6600;
+  color: var(--color-accent);
 }
 
 section {
-  padding: 60px 20px;
+  padding: 60px 16px;
 }
 
 .hero {
@@ -111,10 +148,21 @@ section {
   background: #fff;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.in-view {
+  opacity: 1;
+  transform: none;
+}
+
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
 }
 
 .catalog {
@@ -129,6 +177,12 @@ section {
   border-radius: 4px;
   padding: 10px;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .product-image {
@@ -192,18 +246,34 @@ footer {
   height: 24px;
 }
 
-.request-btn {
-  background-color: #ff6600;
+.btn {
+  background-color: var(--color-primary);
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 8px 12px;
+  padding: 12px 24px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--color-accent);
+}
+
+.request-btn {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .request-btn:hover {
-  background-color: #e55a00;
+  background-color: var(--color-accent);
 }
 
 /* Modal styles */
@@ -260,16 +330,17 @@ footer {
 }
 
 .modal-content button[type="submit"] {
-  background-color: #ff6600;
+  background-color: var(--color-primary);
   color: #fff;
   border: none;
-  padding: 8px;
   border-radius: 4px;
+  padding: 12px 24px;
   cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .modal-content button[type="submit"]:hover {
-  background-color: #e55a00;
+  background-color: var(--color-accent);
 }
 
 .modal-content small {
