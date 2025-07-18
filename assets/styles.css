@@ -110,6 +110,11 @@ section {
   padding: 60px 16px;
 }
 
+/* Background gradient for sections */
+.section-background {
+  background: linear-gradient(to bottom, #e5ebf1 0%, #f2f6fa 50%, #e5ebf1 100%);
+}
+
 .hero {
   padding: 0;
   position: relative;
