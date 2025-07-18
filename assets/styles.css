@@ -286,10 +286,9 @@ section {
   max-width: 300px;
   border-radius: 8px;
 }
-
 .review-card img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
@@ -502,6 +501,6 @@ footer {
 
   .product-image,
   .review-card img {
-    height: 100px;
+    height: 120px;
   }
 }
