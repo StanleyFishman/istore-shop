@@ -575,3 +575,91 @@ footer {
     transform: translateX(-50%);
   }
 }
+
+/* Top Sales section */
+.top-sales-heading {
+  font-weight: bold;
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.top-sales-swiper {
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.top-sales-swiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.sales-card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sales-card .placeholder {
+  width: 100%;
+  height: 240px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.sales-card .specs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.sales-card .specs li + li {
+  margin-top: 4px;
+}
+
+.sales-card .price {
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.sales-card button {
+  background: #fff;
+  border: 1px solid #000;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sales-card button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.top-sales-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  opacity: 1;
+  margin: 0 4px !important;
+}
+
+.top-sales-swiper .swiper-pagination-bullet-active {
+  background: #000;
+}
+
+.top-sales-swiper .swiper-button-prev,
+.top-sales-swiper .swiper-button-next {
+  color: #000;
+}
