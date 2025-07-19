@@ -692,10 +692,13 @@ footer {
   transition: all 0.3s ease;
 }
 
-.catalog-title {
-  font-weight: 600;
+.catalog-info {
   margin-top: 16px;
   transition: transform 0.3s ease;
+}
+
+.catalog-title {
+  font-weight: 600;
 }
 
 .catalog-subtitle {
@@ -703,7 +706,7 @@ footer {
   color: #555;
 }
 
-.catalog-item:hover .catalog-title {
+.catalog-item:hover .catalog-info {
   transform: translateY(-10px);
 }
 
