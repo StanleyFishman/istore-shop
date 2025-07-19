@@ -60,4 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    if (window.Swiper) {
+        new Swiper('.top-sales-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.top-sales-swiper .swiper-button-next',
+                prevEl: '.top-sales-swiper .swiper-button-prev',
+            },
+            pagination: {
+                el: '.top-sales-swiper .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                600: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            },
+        });
+    }
 });

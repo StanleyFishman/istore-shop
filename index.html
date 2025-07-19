@@ -7,6 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header>
@@ -119,7 +123,86 @@
 
     <section id="top-sales" class="fade-in section-background">
       <div class="container">
-        <h2>ТОП ПРОДАЖ</h2>
+        <h2 class="top-sales-heading">ТОП ПРОДАЖ</h2>
+        <div class="swiper top-sales-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="sales-card">
+                <div class="placeholder"></div>
+                <h3 class="phone-name">Apple iPhone X Pro</h3>
+                <ul class="specs">
+                  <li>Память: 128GB / 256GB / 512GB</li>
+                  <li>Цвет: Серый / Белый / Чёрный</li>
+                </ul>
+                <div class="price">Цена: 94 990Р</div>
+                <button>Купить</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sales-card">
+                <div class="placeholder"></div>
+                <h3 class="phone-name">Apple iPhone 11 Plus</h3>
+                <ul class="specs">
+                  <li>Память: 128GB / 256GB</li>
+                  <li>Цвет: Белый / Жёлтый / Чёрный</li>
+                </ul>
+                <div class="price">Цена: 84 990Р</div>
+                <button>Купить</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sales-card">
+                <div class="placeholder"></div>
+                <h3 class="phone-name">Apple iPhone 12 Mini</h3>
+                <ul class="specs">
+                  <li>Память: 64GB / 128GB / 256GB</li>
+                  <li>Цвет: Красный / Синий / Чёрный</li>
+                </ul>
+                <div class="price">Цена: 69 990Р</div>
+                <button>Купить</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sales-card">
+                <div class="placeholder"></div>
+                <h3 class="phone-name">Apple iPhone 13 Pro</h3>
+                <ul class="specs">
+                  <li>Память: 128GB / 256GB / 512GB</li>
+                  <li>Цвет: Серебристый / Графитовый / Золотой</li>
+                </ul>
+                <div class="price">Цена: 114 990Р</div>
+                <button>Купить</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sales-card">
+                <div class="placeholder"></div>
+                <h3 class="phone-name">Apple iPhone 14 Pro Max</h3>
+                <ul class="specs">
+                  <li>Память: 256GB / 512GB / 1TB</li>
+                  <li>Цвет: Фиолетовый / Зелёный / Чёрный</li>
+                </ul>
+                <div class="price">Цена: 159 990Р</div>
+                <button>Купить</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="sales-card">
+                <div class="placeholder"></div>
+                <h3 class="phone-name">Apple iPhone SE 2022</h3>
+                <ul class="specs">
+                  <li>Память: 64GB / 128GB / 256GB</li>
+                  <li>Цвет: Красный / Белый / Чёрный</li>
+                </ul>
+                <div class="price">Цена: 49 990Р</div>
+                <button>Купить</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </section>
 
@@ -289,6 +372,7 @@
       </div>
     </div>
 
-    <script src="assets/script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+      <script src="assets/script.js"></script>
   </body>
 </html>
