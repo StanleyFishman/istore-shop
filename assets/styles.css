@@ -663,3 +663,69 @@ footer {
 .top-sales-swiper .swiper-button-next {
   color: #000;
 }
+
+/* Catalog grid redesign */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 60px 0;
+}
+
+.catalog-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.catalog-item:hover .image-placeholder {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.image-placeholder {
+  background-color: #ccc;
+  height: 200px;
+  transition: all 0.3s ease;
+}
+
+.catalog-info {
+  margin-top: 16px;
+  transition: transform 0.3s ease;
+}
+
+.catalog-title {
+  font-weight: 600;
+}
+
+.catalog-subtitle {
+  font-size: 14px;
+  color: #555;
+}
+
+.catalog-item:hover .catalog-info {
+  transform: translateY(-10px);
+}
+
+.catalog-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 30px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  border: none;
+}
+
+.catalog-item:hover .catalog-button {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
