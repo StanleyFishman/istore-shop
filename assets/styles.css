@@ -673,28 +673,33 @@ footer {
 }
 
 .catalog-item {
-  background-color: #fff;
-  border-radius: 8px;
+  position: relative;
   overflow: hidden;
   text-align: center;
-  position: relative;
+  background: #d3d3d3;
+  border-radius: 8px;
+  height: 300px;
   transition: all 0.3s ease;
 }
 
 .catalog-item:hover .image-placeholder {
   transform: scale(1.05);
-  filter: brightness(1.1);
 }
 
 .image-placeholder {
-  background-color: #ccc;
-  height: 200px;
-  transition: all 0.3s ease;
+  position: absolute;
+  inset: 0;
+  background-color: #d3d3d3;
+  transition: transform 0.3s ease;
 }
 
 .catalog-info {
-  margin-top: 16px;
-  transition: transform 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  margin: 0;
 }
 
 .catalog-title {
@@ -707,14 +712,14 @@ footer {
 }
 
 .catalog-item:hover .catalog-info {
-  transform: translateY(-10px);
+  transform: translate(-50%, -70%);
 }
 
 .catalog-button {
   position: absolute;
-  bottom: 20px;
   left: 50%;
-  transform: translate(-50%, 30px);
+  bottom: 30px;
+  transform: translateX(-50%) translateY(30px);
   opacity: 0;
   transition: all 0.3s ease;
   background: black;
@@ -726,6 +731,6 @@ footer {
 }
 
 .catalog-item:hover .catalog-button {
-  transform: translate(-50%, 0);
+  transform: translateX(-50%) translateY(0);
   opacity: 1;
 }
