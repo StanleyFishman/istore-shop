@@ -687,19 +687,22 @@ footer {
 
 .catalog-content {
   position: absolute;
-  top: 2%;               /* поднимаем текст ещё выше */
+  top: 10%;                /* текст опущен ниже, чтобы не упираться в верх */
   left: 0;
   width: 100%;
-  padding: 0 16px;       /* без верхнего паддинга, чтобы не тянуть вниз */
+  height: 80%;             /* даём место для текста сверху и кнопок снизу */
+  padding: 0 16px;
   box-sizing: border-box;
   text-align: center;
   z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* распределяем: текст сверху, кнопки снизу */
 }
 
 .catalog-content h3 {
-  /* делаем основной заголовок заметно крупнее и плотнее, как у Apple */
   font-size: clamp(32px, 4.8vw, 56px);
-  line-height: 1.05;
   font-weight: 700;
   margin: 0 0 8px;
 }
@@ -711,19 +714,19 @@ footer {
 }
 
 .catalog-buttons {
-  margin-top: 16px;      /* чуть больше воздуха под подзаголовком */
+  margin-bottom: 12px; /* небольшой отступ от низа */
   display: flex;
   justify-content: center;
   gap: 12px;
 }
 
-/* Адаптив: на узких экранах чуть ниже текст и скромнее шрифты */
 @media (max-width: 768px) {
-  .catalog-item { height: 60vw; }      /* немного выше карточку, чтобы всё поместилось */
-  .catalog-content { top: 4%; }
+  .catalog-content {
+    top: 6%;
+    height: 85%;
+  }
   .catalog-content h3 { font-size: clamp(22px, 7vw, 30px); }
   .catalog-content p { font-size: clamp(13px, 3.5vw, 16px); }
-  .catalog-buttons { margin-top: 12px; }
 }
 
 .btn {
