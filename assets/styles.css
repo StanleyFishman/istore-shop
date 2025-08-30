@@ -665,31 +665,34 @@ footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
-  width: 100vw;
+  width: 100%;
 }
 
 .catalog-item {
+  position: relative;
   height: calc(100vw / 2 * 0.65);
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
-  background: #fff;
   border: 1px solid #fff;
 }
 
-.catalog-image {
-  flex: 1;
-}
-
-.catalog-image img {
+.catalog-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 0;
 }
 
 .catalog-content {
-  padding: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
+  padding: 0 16px;
+  z-index: 1;
 }
 
 .catalog-buttons {
