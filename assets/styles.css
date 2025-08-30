@@ -687,20 +687,43 @@ footer {
 
 .catalog-content {
   position: absolute;
-  top: 5%;
+  top: 2%;               /* поднимаем текст ещё выше */
   left: 0;
   width: 100%;
-  padding: 0 16px;
+  padding: 0 16px;       /* без верхнего паддинга, чтобы не тянуть вниз */
   box-sizing: border-box;
   text-align: center;
   z-index: 1;
 }
 
+.catalog-content h3 {
+  /* делаем основной заголовок заметно крупнее и плотнее, как у Apple */
+  font-size: clamp(32px, 4.8vw, 56px);
+  line-height: 1.05;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.catalog-content p {
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin: 0;
+  opacity: 0.9;
+}
+
 .catalog-buttons {
-  margin-top: 12px;
+  margin-top: 16px;      /* чуть больше воздуха под подзаголовком */
   display: flex;
   justify-content: center;
   gap: 12px;
+}
+
+/* Адаптив: на узких экранах чуть ниже текст и скромнее шрифты */
+@media (max-width: 768px) {
+  .catalog-item { height: 60vw; }      /* немного выше карточку, чтобы всё поместилось */
+  .catalog-content { top: 4%; }
+  .catalog-content h3 { font-size: clamp(22px, 7vw, 30px); }
+  .catalog-content p { font-size: clamp(13px, 3.5vw, 16px); }
+  .catalog-buttons { margin-top: 12px; }
 }
 
 .btn {
