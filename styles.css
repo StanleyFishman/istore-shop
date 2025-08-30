@@ -1,0 +1,57 @@
+/* Каталог товаров в стиле Apple */
+.catalog-section {
+  padding: 0;
+  background: #f5f5f7;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 100%;
+  margin: 0;
+}
+
+.catalog-item {
+  background: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+}
+
+.catalog-item img {
+  width: 70%;
+  margin: 0 auto 20px;
+}
+
+.catalog-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.btn-blue {
+  background-color: #0071e3;
+  color: #fff;
+}
+
+.btn-outline {
+  border: 1px solid #0071e3;
+  color: #0071e3;
+  background: transparent;
+}
