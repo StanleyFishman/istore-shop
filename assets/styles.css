@@ -131,6 +131,9 @@ section {
 .slider img {
   width: 100%;
   display: none;
+  background: #ddd;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .slider img.active {
@@ -339,20 +342,6 @@ footer {
   cursor: pointer;
 }
 
-.btn {
-  background-color: var(--color-primary);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 24px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.btn:hover {
-  background-color: var(--color-accent);
-}
 
 .phone-btn {
   color: #fff;
@@ -664,73 +653,65 @@ footer {
   color: #000;
 }
 
-/* Catalog grid redesign */
+/* Каталог товаров в стиле Apple */
+.catalog-section {
+  padding: 0;
+  background: #f5f5f7;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 60px 0;
+  grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+  gap: 12px;
+  width: 100vw; /* на всю ширину экрана */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .catalog-item {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  background: #d3d3d3;
+  background: #fff;
+  aspect-ratio: 1 / 0.65; /* ширина : высота → 100:65 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  border: 1px solid #eaeaea;
   border-radius: 8px;
-  height: 300px;
-  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.catalog-item:hover .image-placeholder {
-  transform: scale(1.05);
+.catalog-item img {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 12px;
 }
 
-.image-placeholder {
-  position: absolute;
-  inset: 0;
-  background-color: #d3d3d3;
-  transition: transform 0.3s ease;
+.catalog-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
-.catalog-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-  margin: 0;
-}
-
-.catalog-title {
-  font-weight: 600;
-}
-
-.catalog-subtitle {
-  font-size: 14px;
-  color: #555;
-}
-
-.catalog-item:hover .catalog-info {
-  transform: translate(-50%, -70%);
-}
-
-.catalog-button {
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  transform: translateX(-50%) translateY(30px);
-  opacity: 0;
-  transition: all 0.3s ease;
-  background: black;
-  color: white;
+.btn {
   padding: 10px 20px;
-  border-radius: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 30px;
   font-size: 14px;
-  border: none;
 }
 
-.catalog-item:hover .catalog-button {
-  transform: translateX(-50%) translateY(0);
-  opacity: 1;
+.btn-blue {
+  background-color: #0071e3;
+  color: #fff;
+}
+
+.btn-outline {
+  border: 1px solid #0071e3;
+  color: #0071e3;
+  background: transparent;
 }
