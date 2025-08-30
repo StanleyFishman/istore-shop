@@ -50,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.querySelectorAll('.catalog-item').forEach(item => {
+        const bg = item.dataset.bg;
+        if (bg) {
+            item.style.background = `url(${bg}) center/cover no-repeat`;
+        }
+    });
+
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
