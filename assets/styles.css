@@ -704,7 +704,7 @@ footer {
 .catalog-header h3 {
   font-size: clamp(32px, 4.8vw, 56px);
   font-weight: 700;
-  margin: 0 0 8px;
+  margin: 0 0 0px;
 }
 
 .catalog-header p {
@@ -714,7 +714,7 @@ footer {
 }
 
 .catalog-buttons {
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   display: flex;
   justify-content: center;
   gap: 12px;
