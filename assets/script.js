@@ -87,17 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
     catalogItems.forEach((item, idx) => {
         item.addEventListener('mouseenter', () => {
             const pairIndex = idx % 2 === 0 ? idx + 1 : idx - 1;
-            item.style.flexBasis = `calc(${expand}% - 6px)`;
+            item.style.flex = `0 0 calc(${expand}% - 6px)`;
             if (catalogItems[pairIndex]) {
-                catalogItems[pairIndex].style.flexBasis = `calc(${shrink}% - 6px)`;
+                catalogItems[pairIndex].style.flex = `0 0 calc(${shrink}% - 6px)`;
             }
         });
 
         item.addEventListener('mouseleave', () => {
             const pairIndex = idx % 2 === 0 ? idx + 1 : idx - 1;
-            item.style.flexBasis = '';
+            item.style.flex = '';
             if (catalogItems[pairIndex]) {
-                catalogItems[pairIndex].style.flexBasis = '';
+                catalogItems[pairIndex].style.flex = '';
             }
         });
     });
