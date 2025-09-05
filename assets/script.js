@@ -81,23 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const catalogItems = document.querySelectorAll('.catalog-grid .catalog-item');
-    const expand = 55;
-    const shrink = 45;
+    const expand = 'calc(55% - 6px)';
+    const shrink = 'calc(45% - 6px)';
 
     catalogItems.forEach((item, idx) => {
         item.addEventListener('mouseenter', () => {
             const pairIndex = idx % 2 === 0 ? idx + 1 : idx - 1;
-            item.style.flex = `0 0 calc(${expand}% - 6px)`;
+            item.style.flexBasis = expand;
             if (catalogItems[pairIndex]) {
-                catalogItems[pairIndex].style.flex = `0 0 calc(${shrink}% - 6px)`;
+                catalogItems[pairIndex].style.flexBasis = shrink;
             }
         });
 
         item.addEventListener('mouseleave', () => {
             const pairIndex = idx % 2 === 0 ? idx + 1 : idx - 1;
-            item.style.flex = '';
+            item.style.flexBasis = '';
             if (catalogItems[pairIndex]) {
-                catalogItems[pairIndex].style.flex = '';
+                catalogItems[pairIndex].style.flexBasis = '';
             }
         });
     });
