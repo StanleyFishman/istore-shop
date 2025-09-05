@@ -80,18 +80,4 @@ document.addEventListener('DOMContentLoaded', () => {
           });
       }
 
-      document.querySelectorAll('.catalog-row').forEach(row => {
-          const items = row.querySelectorAll('.catalog-item');
-          items.forEach((item, index) => {
-              item.addEventListener('mouseenter', () => {
-                  item.classList.add('expanded');
-                  const sibling = items[index === 0 ? 1 : 0];
-                  sibling.classList.add('shrink');
-              });
-              item.addEventListener('mouseleave', () => {
-                  item.classList.remove('expanded');
-                  items.forEach(el => el.classList.remove('shrink'));
-              });
-          });
-      });
   });
