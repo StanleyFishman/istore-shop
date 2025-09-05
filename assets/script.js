@@ -61,22 +61,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    if (window.Swiper) {
-        new Swiper('.top-sales-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            navigation: {
-                nextEl: '.top-sales-swiper .swiper-button-next',
-                prevEl: '.top-sales-swiper .swiper-button-prev',
-            },
-            pagination: {
-                el: '.top-sales-swiper .swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                600: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-            },
-        });
-    }
-});
+      if (window.Swiper) {
+          new Swiper('.top-sales-swiper', {
+              slidesPerView: 1,
+              spaceBetween: 30,
+              navigation: {
+                  nextEl: '.top-sales-swiper .swiper-button-next',
+                  prevEl: '.top-sales-swiper .swiper-button-prev',
+              },
+              pagination: {
+                  el: '.top-sales-swiper .swiper-pagination',
+                  clickable: true,
+              },
+              breakpoints: {
+                  600: { slidesPerView: 2 },
+                  1024: { slidesPerView: 3 },
+              },
+          });
+      }
+
+      document.querySelectorAll('.catalog-row').forEach(row => {
+          const items = row.querySelectorAll('.catalog-item');
+          items.forEach((item, index) => {
+              item.addEventListener('mouseenter', () => {
+                  item.classList.add('expanded');
+                  const sibling = items[index === 0 ? 1 : 0];
+                  sibling.classList.add('shrink');
+              });
+              item.addEventListener('mouseleave', () => {
+                  item.classList.remove('expanded');
+                  items.forEach(el => el.classList.remove('shrink'));
+              });
+          });
+      });
+  });
