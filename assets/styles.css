@@ -654,6 +654,7 @@ footer {
 }
 
 /* Каталог товаров в стиле Apple */
+
 .catalog-section {
   padding: 0;
   background: #f5f5f7;
@@ -662,20 +663,25 @@ footer {
 }
 
 .catalog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .catalog-item {
   position: relative;
-  height: calc(100vw / 2 * 0.65);
+  flex: 1 1 calc(50% - 6px);
   overflow: hidden;
   border: 1px solid #fff;
+  border-radius: 12px;
+  aspect-ratio: 1 / 0.65;
+  transition: flex-basis 0.3s ease;
 }
 
-.catalog-item img {
+.catalog-image img {
   position: absolute;
   top: 0;
   left: 0;
@@ -683,6 +689,11 @@ footer {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.catalog-item:hover .catalog-image img {
+  transform: scale(1.05);
 }
 
 .catalog-content {

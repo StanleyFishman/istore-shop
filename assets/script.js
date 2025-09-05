@@ -79,4 +79,26 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     }
+
+    const catalogItems = document.querySelectorAll('.catalog-grid .catalog-item');
+    const expand = 55;
+    const shrink = 45;
+
+    catalogItems.forEach((item, idx) => {
+        item.addEventListener('mouseenter', () => {
+            const pairIndex = idx % 2 === 0 ? idx + 1 : idx - 1;
+            item.style.flexBasis = `calc(${expand}% - 6px)`;
+            if (catalogItems[pairIndex]) {
+                catalogItems[pairIndex].style.flexBasis = `calc(${shrink}% - 6px)`;
+            }
+        });
+
+        item.addEventListener('mouseleave', () => {
+            const pairIndex = idx % 2 === 0 ? idx + 1 : idx - 1;
+            item.style.flexBasis = '';
+            if (catalogItems[pairIndex]) {
+                catalogItems[pairIndex].style.flexBasis = '';
+            }
+        });
+    });
 });
