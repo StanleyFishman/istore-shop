@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     if (window.Swiper) {
-        const heroSwiper = new Swiper('.hero-swiper', {
+        new Swiper('.hero-swiper', {
             slidesPerView: 'auto',
             centeredSlides: true,
             loop: true,
@@ -53,17 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el: '.hero-swiper .swiper-pagination',
                 clickable: true,
             },
-            on: {
-                init: setActiveSlide,
-                slideChangeTransitionStart: setActiveSlide,
-            }
         });
-
-        function setActiveSlide(swiper) {
-            swiper.slides.forEach(slide => slide.classList.remove('is-active'));
-            const active = swiper.slides[swiper.activeIndex];
-            if (active) active.classList.add('is-active');
-        }
 
         new Swiper('.top-sales-swiper', {
             slidesPerView: 1,
