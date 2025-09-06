@@ -131,7 +131,7 @@ section {
 .hero-swiper .swiper-slide {
   width: 75%;
   filter: brightness(1.2);
-  transition: filter 0.8s ease;
+  transition: filter 1.5s ease-in-out;
 }
 
 .hero-swiper .swiper-slide-active {
