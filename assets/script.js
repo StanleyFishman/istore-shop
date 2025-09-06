@@ -48,32 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
             loop: true,
             spaceBetween: 20,
             autoplay: { delay: 3500, disableOnInteraction: false },
-            speed: 800,
-            watchSlidesProgress: true,
+            speed: 1500,
             pagination: {
                 el: '.hero-swiper .swiper-pagination',
                 clickable: true,
             },
             on: {
-                init(swiper) {
-                    swiper.emit('progress');
-                },
-                progress(swiper) {
-                    swiper.slides.forEach(slide => {
-                        const progress = Math.min(Math.abs(slide.progress), 1);
-                        const overlay = slide.querySelector('.light-overlay');
-                        if (overlay) {
-                            overlay.style.opacity = 0.3 * progress;
-                        }
-                        const img = slide.querySelector('img');
-                        if (img) {
-                            const brightness = 1 + 0.2 * progress;
-                            img.style.filter = `brightness(${brightness}) contrast(0.9)`;
-                        }
-                    });
-                }
+                init: setActiveSlide,
+                slideChangeTransitionStart: setActiveSlide,
             }
         });
+
+        function setActiveSlide(swiper) {
+            swiper.slides.forEach(slide => slide.classList.remove('is-active'));
+            const active = swiper.slides[swiper.activeIndex];
+            if (active) active.classList.add('is-active');
+        }
 
         new Swiper('.top-sales-swiper', {
             slidesPerView: 1,
