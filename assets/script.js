@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 progress(swiper) {
                     swiper.slides.forEach(slide => {
                         const progress = Math.min(Math.abs(slide.progress), 1);
-                        const brightness = 1 + 0.2 * progress;
+                        const brightness = 1 + 0.5 * progress;
                         slide.style.filter = `brightness(${brightness})`;
                     });
                 }
