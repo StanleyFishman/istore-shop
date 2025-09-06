@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             centeredSlides: true,
             loop: true,
             autoplay: { delay: 3500, disableOnInteraction: false },
-            speed: 1500,
+            speed: 2000,
             pagination: {
                 el: '.hero-swiper .swiper-pagination',
                 clickable: true,
