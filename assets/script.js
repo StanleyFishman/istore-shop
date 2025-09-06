@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loop: true,
             spaceBetween: 20,
             autoplay: { delay: 3500, disableOnInteraction: false },
-            speed: 3500,
+            speed: 800,
             watchSlidesProgress: true,
             pagination: {
                 el: '.hero-swiper .swiper-pagination',
@@ -61,8 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 progress(swiper) {
                     swiper.slides.forEach(slide => {
                         const progress = Math.min(Math.abs(slide.progress), 1);
-                        const brightness = 1 + 0.5 * progress;
-                        slide.style.filter = `brightness(${brightness})`;
+                        const overlay = slide.querySelector('.light-overlay');
+                        if (overlay) {
+                            overlay.style.opacity = 0.5 * progress;
+                        }
+                        const img = slide.querySelector('img');
+                        if (img) {
+                            const brightness = 1 + 0.4 * progress;
+                            img.style.filter = `brightness(${brightness}) contrast(0.9)`;
+                        }
                     });
                 }
             }
