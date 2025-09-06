@@ -42,16 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
     if (window.Swiper) {
-        new Swiper('.hero-swiper', {
+        const heroSwiper = new Swiper('.hero-swiper', {
             slidesPerView: 'auto',
             centeredSlides: true,
             loop: true,
+            spaceBetween: 20,
             autoplay: { delay: 3500, disableOnInteraction: false },
-            speed: 2000,
+            speed: 3500,
+            watchSlidesProgress: true,
             pagination: {
                 el: '.hero-swiper .swiper-pagination',
                 clickable: true,
             },
+            on: {
+                init(swiper) {
+                    swiper.emit('progress');
+                },
+                progress(swiper) {
+                    swiper.slides.forEach(slide => {
+                        const progress = Math.min(Math.abs(slide.progress), 1);
+                        const brightness = 1 + 0.2 * progress;
+                        slide.style.filter = `brightness(${brightness})`;
+                    });
+                }
+            }
         });
 
         new Swiper('.top-sales-swiper', {

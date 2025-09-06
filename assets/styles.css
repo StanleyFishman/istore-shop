@@ -129,13 +129,15 @@ section {
 }
 
 .hero-swiper .swiper-wrapper {
-  transition-timing-function: cubic-bezier(0.5, 0, 1, 1);
+  transition-timing-function: cubic-bezier(0.8, 0, 1, 1);
 }
 
 .hero-swiper .swiper-slide {
   width: 75%;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  border-radius: 12px;
   filter: brightness(1.2);
-  transition: filter 2s cubic-bezier(0.5, 0, 1, 1);
 }
 
 .hero-swiper .swiper-slide-active {
