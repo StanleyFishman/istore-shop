@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         new Swiper('.hero-swiper', {
             slidesPerView: 'auto',
             centeredSlides: true,
-            loop: false,
-            rewind: true,
+            loop: true,
+            initialSlide: 1,
             spaceBetween: 20,
             autoplay: { delay: 3500, disableOnInteraction: false },
             speed: 1500,
