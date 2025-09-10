@@ -82,13 +82,30 @@ h3 {
 header {
   background-color: #000;
   color: #fff;
-  padding: 10px 40px;
+  padding: 20px 40px;
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.company-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .logo {
@@ -454,6 +471,17 @@ footer {
     align-items: flex-start;
   }
 
+  .nav-left {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .company-name {
+    position: static;
+    transform: none;
+    margin-top: 10px;
+  }
+
   .hamburger {
     display: block;
     background: none;
@@ -764,11 +792,7 @@ footer {
 }
 
 .logo img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  z-index: 0;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
