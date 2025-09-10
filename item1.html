@@ -15,88 +15,18 @@
         flex-direction: column;
         height: 100vh;
       }
-      .action-buttons {
-        position: fixed;
-        top: 100px;
-        left: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .action-buttons button {
-        padding: 10px 15px;
-        cursor: pointer;
-        font-size: 14px;
-      }
-      .configurator {
-        position: fixed;
-        top: 0;
-        left: -300px;
-        width: 300px;
-        height: 100%;
-        background: #fff;
-        box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-        padding: 20px;
-        transition: left 0.3s ease;
-        overflow-y: auto;
-      }
-      .configurator.open {
-        left: 0;
-      }
       .image-wrapper {
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: margin-left 0.3s ease;
         position: relative;
-      }
-      .image-wrapper.shift {
-        margin-left: 300px;
-      }
-      .image-placeholder {
-        width: 80%;
-        max-width: 600px;
-        height: 300px;
-        background: #ddd;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #555;
-        font-size: 20px;
       }
       .item-title {
         text-align: center;
         padding: 20px 0;
         font-size: 24px;
       }
-      .viewer {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255,255,255,0.9);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      .viewer.active {
-        display: flex;
-      }
-      .viewer-content {
-        border: 2px dashed #000;
-        padding: 40px;
-        background: #eee;
-      }
-      .close-viewer {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-      }
-
       /* Inverted navbar colors */
       .item-page header {
         background-color: #fff;
@@ -160,21 +90,8 @@
         <button class="request-btn">Оставить заявку</button>
       </div>
     </header>
-    <div class="action-buttons">
-      <button id="homeBtn">на главную</button>
-      <button id="configBtn">конфигуратор</button>
-      <button id="model3DBtn">3D модель</button>
-    </div>
-    <div id="configurator" class="configurator">
-      <h2>Конфигуратор</h2>
-      <p>Здесь будет меню конфигурации.</p>
-    </div>
     <div id="image-wrapper" class="image-wrapper">
       <img src="assets/images/item1_pic1.png" alt="item1_pic1" />
-      <div id="viewer" class="viewer">
-        <button class="close-viewer">&times;</button>
-        <div class="viewer-content">здесь будет 3D</div>
-      </div>
     </div>
     <h2 class="item-title">Машина чешуирования</h2>
     <div id="request-modal" class="modal">
@@ -197,31 +114,5 @@
       </div>
     </div>
     <script src="assets/script.js"></script>
-    <script>
-      const homeBtn = document.getElementById('homeBtn');
-      const configBtn = document.getElementById('configBtn');
-      const model3DBtn = document.getElementById('model3DBtn');
-      const configurator = document.getElementById('configurator');
-      const imageWrapper = document.getElementById('image-wrapper');
-      const viewer = document.getElementById('viewer');
-      const closeViewer = document.querySelector('.close-viewer');
-
-      homeBtn.addEventListener('click', () => {
-        window.location.href = 'index.html';
-      });
-
-      configBtn.addEventListener('click', () => {
-        configurator.classList.toggle('open');
-        imageWrapper.classList.toggle('shift');
-      });
-
-      model3DBtn.addEventListener('click', () => {
-        viewer.classList.add('active');
-      });
-
-      closeViewer.addEventListener('click', () => {
-        viewer.classList.remove('active');
-      });
-    </script>
   </body>
 </html>

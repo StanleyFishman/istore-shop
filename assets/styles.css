@@ -87,8 +87,9 @@ header {
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #cccccc;
 }
 
 .logo {
@@ -98,8 +99,17 @@ header {
   color: #fff;
 }
 
+
 .logo-text {
   line-height: 1;
+}
+
+header .logo-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .logo-name {
@@ -119,6 +129,7 @@ header {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  margin-left: 25px;
 }
 
 .navbar li {
@@ -333,6 +344,7 @@ footer {
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-left: auto;
 }
 
 .icon-btn {
