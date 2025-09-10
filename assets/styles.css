@@ -1,3 +1,35 @@
+/* === Global font: Michroma everywhere === */
+html, body {
+  font-family: "Michroma", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;                 /* у Michroma один базовый вес — оставляем 400 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Небольшая разрядка для заголовков/навигации в духе wordmark */
+h1, h2, h3, h4, h5, h6,
+.navbar a, .btn, .phone-btn, .request-btn,
+.logo-text, .logo-name {
+  letter-spacing: 0.06em;           /* аккуратно, чтобы абзацы не «расползались» */
+  text-transform: none;             /* по желанию: можно uppercase */
+}
+
+/* Для логотипа можно шире, если нужно «как в лого» */
+.logo-name {
+  letter-spacing: 0.22em;           /* как в варианте B */
+  text-transform: uppercase;        /* подчеркнуть «логотипность» */
+}
+
+/* Опционально: плотнее абзацы и шире числа */
+p, li {
+  letter-spacing: 0;
+}
+
+.kpi, .stat {
+  letter-spacing: 0.08em;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -11,7 +43,6 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.5;
