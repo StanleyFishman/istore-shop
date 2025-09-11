@@ -765,6 +765,7 @@ footer {
   padding: 4px 8px;
   border-radius: 8px;
   transition: background 0.3s ease;
+  margin-right: 50px;
 }
 
 .catalog-footer .more-link .more-text {
@@ -784,6 +785,7 @@ footer {
 
 .catalog-footer .more-link .arrow {
   display: inline-block;
+  font-size: clamp(18px, 2vw, 26px);
 }
 
 .catalog-footer .more-link:hover {
