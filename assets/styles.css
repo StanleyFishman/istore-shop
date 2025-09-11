@@ -750,6 +750,7 @@ footer {
 .catalog-footer p {
   font-size: clamp(14px, 1.4vw, 18px);
   margin: 0;
+  margin-left: 50px;
   opacity: 0.85;
 }
 
