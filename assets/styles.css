@@ -753,13 +753,14 @@ footer {
   margin: 0;
   margin-left: 50px;
   opacity: 0.85;
+  color: #000;
 }
 
 .catalog-footer .more-link {
   display: inline-flex;
   align-items: center;
   font-size: clamp(14px, 1.4vw, 18px);
-  color: #fff;
+  color: #000;
   text-decoration: none;
   padding: 4px 8px;
   border-radius: 8px;
@@ -787,6 +788,7 @@ footer {
 
 .catalog-footer .more-link:hover {
   background: rgba(0, 0, 0, 0.4);
+  color: #000;
 }
 
 @media (max-width: 768px) {
