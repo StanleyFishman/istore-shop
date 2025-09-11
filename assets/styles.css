@@ -731,6 +731,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #fff;
 }
 
 .catalog-content h3 {
@@ -752,6 +753,40 @@ footer {
   margin: 0;
   margin-left: 50px;
   opacity: 0.85;
+}
+
+.catalog-footer .more-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.catalog-footer .more-link .more-text {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 0;
+  transition: max-width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease;
+}
+
+.catalog-item:hover .more-link .more-text {
+  max-width: 60px;
+  opacity: 1;
+  margin-right: 6px;
+}
+
+.catalog-footer .more-link .arrow {
+  display: inline-block;
+}
+
+.catalog-footer .more-link:hover {
+  background: rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
