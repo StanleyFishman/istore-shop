@@ -107,6 +107,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    function animateValue(el, duration = 1500) {
+        const target = el.dataset.value;
+        const numbers = target.match(/\d+[.,]?\d*/g);
+        if (!numbers) return;
+        const parts = target.split(/\d+[.,]?\d*/g);
+        const targets = numbers.map(n => parseFloat(n.replace(',', '.')));
+        const decimals = numbers.map(n => (n.includes('.') || n.includes(',')) ? (n.split(/[.,]/)[1] || '').length : 0);
+        const startTime = performance.now();
+
+        function update(now) {
+            const progress = Math.min((now - startTime) / duration, 1);
+            let text = '';
+            for (let i = 0; i < targets.length; i++) {
+                let val = targets[i] * progress;
+                let str = decimals[i] ? val.toFixed(decimals[i]) : Math.round(val).toString();
+                if (numbers[i].includes(',')) {
+                    str = str.replace('.', ',');
+                }
+                text += parts[i] + str;
+            }
+            text += parts[parts.length - 1];
+            el.textContent = text;
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        el.textContent = parts[0] + '0' + parts.slice(1).join('');
+        requestAnimationFrame(update);
+    }
+
     // Populate item page from ITEMS data if present
     if (document.body.classList.contains('item-page') && typeof ITEMS !== 'undefined') {
         const params = new URLSearchParams(window.location.search);
@@ -139,9 +170,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 characteristics.forEach(({ value, description }) => {
                     const stat = document.createElement('div');
                     stat.className = 'stat-item';
-                    stat.innerHTML = `\n                        <div class="stat-value">${value}</div>\n                        <div class="stat-desc">${description}</div>\n                    `;
+                    stat.innerHTML = `\n                        <div class="stat-value" data-value="${value}"></div>\n                        <div class="stat-desc">${description}</div>\n                    `;
                     statsContainer.appendChild(stat);
                 });
+
+                const statValues = statsContainer.querySelectorAll('.stat-value');
+                const statsObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateValue(entry.target);
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                statValues.forEach(el => statsObserver.observe(el));
             }
         }
     }
