@@ -107,9 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const ODOMETER_DEFAULTS = {
-        duration: 2000,
-        easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
-        loops: 1
+        duration: 5000,
+        easing: 'cubic-bezier(0.33, 1, 0.68, 1)',
+        loops: 2
     };
 
     function prepareOdometer(el, options = {}) {
@@ -153,6 +153,10 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(() => {
             digits.forEach(({ seq, offset }) => {
                 seq.style.transform = `translateY(-${offset * 100}%)`;
+                seq.addEventListener('transitionend', () => {
+                    const wrapper = seq.parentElement;
+                    wrapper.textContent = offset % 10;
+                }, { once: true });
             });
         });
     }

@@ -396,7 +396,7 @@ header .logo-text {
   flex-direction: column;
   width: 100%;
   transform: translateY(0);
-  transition: transform var(--odometer-duration, 2000ms) var(--odometer-easing, cubic-bezier(0.25, 0.1, 0.25, 1));
+  transition: transform var(--odometer-duration, 5000ms) var(--odometer-easing, cubic-bezier(0.33, 1, 0.68, 1));
 }
 
 .item-page .characteristics-stats .stat-value .digit-sequence span {
