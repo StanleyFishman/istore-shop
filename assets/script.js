@@ -95,4 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Populate item page from ITEMS data if present
+    if (document.body.classList.contains('item-page') && typeof ITEMS !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const itemId = params.get('id');
+        if (itemId && ITEMS[itemId]) {
+            const { title, image } = ITEMS[itemId];
+            const titleEl = document.querySelector('.item-title');
+            const imageEl = document.querySelector('#image-wrapper img');
+            if (titleEl) {
+                titleEl.textContent = title;
+                document.title = title;
+            }
+            if (imageEl) {
+                imageEl.src = image;
+                imageEl.alt = itemId;
+            }
+        }
+    }
 });

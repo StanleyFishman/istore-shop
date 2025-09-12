@@ -3,78 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Машина чешуирования</title>
+    <title>Товар</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css" />
-    <style>
-      body {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-      }
-      .image-wrapper {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      .image-wrapper::before {
-        content: "";
-        position: absolute;
-        bottom: 35%;
-        left: 0;
-        width: 100%;
-        height: 30%;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), #e0e0e0);
-        z-index: -1;
-        opacity: 0;
-        animation: gradientFade 4s ease forwards;
-      }
-      @keyframes gradientFade {
-        from { opacity: 0; }
-        to { opacity: 1; }
-      }
-      .item-title {
-        text-align: center;
-        margin: 0;
-        padding: 0 0 20px;
-        font-size: 24px;
-      }
-      /* Inverted navbar colors */
-      .item-page header {
-        background-color: #fff;
-        color: #000;
-      }
-
-      .item-page .logo,
-      .item-page .navbar a,
-      .item-page .hamburger {
-        color: #000;
-      }
-
-      .item-page .icon-btn,
-      .item-page .phone-btn {
-        color: #000;
-        border-color: #000;
-      }
-
-      .item-page .request-btn {
-        background-color: #000;
-        color: #fff;
-        border-color: #000;
-      }
-    </style>
   </head>
   <body class="item-page">
     <header>
       <div class="logo">
-        <img src="assets/images/logo.png" />
-        </svg>
+        <img src="assets/images/logo.png" alt="Logo" />
       </div>
       <button class="hamburger" aria-label="Меню">&#9776;</button>
       <ul class="navbar">
@@ -84,10 +22,9 @@
         <li><a href="index.html#reviews">Отзывы</a></li>
         <li><a href="index.html#contacts">Контакты</a></li>
       </ul>
-        <div class="logo-text">
-          <span class="logo-name">GIR ROS</span>
-          <!-- <small class="logo-tagline">ПРОМЫШЛЕННОЕ ОБОРУДОВАНИЕ</small> -->
-        </div>
+      <div class="logo-text">
+        <span class="logo-name">GIR ROS</span>
+      </div>
       <div class="navbar-right">
         <a href="https://t.me/" class="icon-btn" target="_blank" aria-label="Telegram">
           <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -109,9 +46,9 @@
       </div>
     </header>
     <div id="image-wrapper" class="image-wrapper">
-      <img src="assets/images/item1_pic1.png" alt="item1_pic1" />
+      <img src="" alt="" />
     </div>
-    <h2 class="item-title">МАШИНА ЧЕШУИРОВАНИЯ</h2>
+    <h2 class="item-title"></h2>
     <div id="request-modal" class="modal">
       <div class="modal-content">
         <button class="close-modal">&times;</button>
@@ -125,12 +62,10 @@
           <input type="tel" placeholder="Ваш телефон" required />
           <button type="submit">Отправить</button>
         </form>
-        <small
-          >Нажимая на кнопку "Отправить" вы соглашаетесь с правилами обработки
-          персональных данных</small
-        >
+        <small>Нажимая на кнопку "Отправить" вы соглашаетесь с правилами обработки персональных данных</small>
       </div>
     </div>
+    <script src="assets/items.js"></script>
     <script src="assets/script.js"></script>
   </body>
 </html>
