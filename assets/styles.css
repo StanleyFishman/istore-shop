@@ -244,6 +244,11 @@ header .logo-text {
   overflow: hidden;
 }
 
+.item-page .image-wrapper img {
+  width: 100%;
+  height: auto;
+}
+
 .item-page .main-section {
   display: flex;
   flex-direction: column;
