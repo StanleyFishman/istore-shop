@@ -384,6 +384,8 @@ header .logo-text {
   position: relative;
   overflow: hidden;
   height: 1em;
+  width: 1ch;
+  display: inline-block;
 }
 
 .item-page .characteristics-stats .stat-value .digit-sequence {
@@ -392,6 +394,7 @@ header .logo-text {
   left: 0;
   display: flex;
   flex-direction: column;
+  width: 100%;
   transform: translateY(0);
   transition: transform var(--odometer-duration, 2000ms) var(--odometer-easing, cubic-bezier(0.25, 0.1, 0.25, 1));
 }
