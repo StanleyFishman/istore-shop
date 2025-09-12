@@ -260,28 +260,33 @@ header .logo-text {
 
 .item-page .item-nav {
   position: absolute;
-  left: 40px;
-  top: 40px;
+  left: 100px;
+  top: 100px;
   transform: none;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .item-page .item-nav-btn {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   border: 1px solid #000;
   border-radius: 8px;
   background: #fff;
   color: #000;
-  text-align: left;
   font-family: "Arial Narrow", Arial, sans-serif;
   font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
 }
 
-.item-page .item-nav-btn:hover {
-  background: #f5f5f5;
+.item-page .item-nav-btn:hover,
+.item-page .item-nav-btn:active {
+  background: #000;
+  color: #fff;
 }
 
 .item-page .image-wrapper::before {
