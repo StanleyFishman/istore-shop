@@ -716,6 +716,7 @@ footer {
   transform: scale(1.05);
 }
 
+
 .catalog-content {
   position: absolute;
   top: 8%;
@@ -730,31 +731,72 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: #fff;
 }
 
-.catalog-header h3 {
+.catalog-content h3 {
   font-size: clamp(32px, 4.8vw, 48px);
   font-weight: 700;
-  margin: 0 0 0px;
+  margin: 0;
 }
 
-.catalog-header p {
+.catalog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.catalog-footer p {
   font-size: clamp(14px, 1.4vw, 18px);
   margin: 0;
+  margin-left: 50px;
   opacity: 0.85;
+  color: #000;
 }
 
-.catalog-buttons {
-  margin-bottom: 0px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+.catalog-footer .more-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #000;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+  margin-right: 50px;
+}
+
+.catalog-footer .more-link .more-text {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 0;
+  transition: max-width 0.3s ease, opacity 0.3s ease, margin-right 0.3s ease;
+}
+
+.catalog-item:hover .more-link .more-text {
+  max-width: 60px;
+  opacity: 1;
+  margin-right: 6px;
+}
+
+.catalog-footer .more-link .arrow {
+  display: inline-block;
+  font-size: clamp(18px, 2vw, 26px);
+}
+
+.catalog-footer .more-link:hover {
+  background: rgba(0, 0, 0, 0.4);
+  color: #000;
 }
 
 @media (max-width: 768px) {
   .catalog-content { top: 6%; height: 88%; }
-  .catalog-header h3 { font-size: clamp(22px, 7vw, 30px); }
-  .catalog-header p { font-size: clamp(13px, 3.5vw, 16px); }
+  .catalog-content h3 { font-size: clamp(22px, 7vw, 30px); }
+  .catalog-footer p { font-size: clamp(13px, 3.5vw, 16px); }
 }
 
 .btn {
