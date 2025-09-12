@@ -244,6 +244,56 @@ header .logo-text {
   overflow: hidden;
 }
 
+.item-page .main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.item-page section {
+  scroll-margin-top: 80px;
+}
+
+.item-page .main-layout {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.item-page .item-nav {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+.item-page .item-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.item-page .item-nav-btn:hover,
+.item-page .item-nav-btn:active {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
 .item-page .image-wrapper::before {
   content: "";
   position: absolute;
