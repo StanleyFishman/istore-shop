@@ -260,12 +260,12 @@ header .logo-text {
 
 .item-page .item-nav {
   position: absolute;
-  left: 100px;
-  top: 100px;
+  left: 40px;
+  top: 40px;
   transform: none;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
 .item-page .item-nav-btn {
@@ -277,6 +277,7 @@ header .logo-text {
   color: #000;
   text-align: left;
   font-family: "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
 }
 
 .item-page .item-nav-btn:hover {
