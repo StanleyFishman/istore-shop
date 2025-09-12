@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const itemId = params.get('id');
         if (itemId && ITEMS[itemId]) {
-            const { title, image } = ITEMS[itemId];
+            const { title, image, characteristics } = ITEMS[itemId];
             const titleEl = document.querySelector('.item-title');
             const imageEl = document.querySelector('#image-wrapper img');
             if (titleEl) {
@@ -122,6 +122,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (imageEl) {
                 imageEl.src = image;
                 imageEl.alt = itemId;
+            }
+
+            const charImgEl = document.querySelector('#characteristics img');
+            if (charImgEl) {
+                let secondaryImage = image.replace(/_pic1(\.[a-z]+)$/i, '_pic2$1');
+                if (secondaryImage === image) {
+                    secondaryImage = image.replace(/(\.[a-z]+)$/i, '_pic2$1');
+                }
+                charImgEl.src = secondaryImage;
+                charImgEl.alt = itemId + ' details';
+            }
+
+            const statsContainer = document.querySelector('.characteristics-stats');
+            if (statsContainer && Array.isArray(characteristics)) {
+                characteristics.forEach(({ value, description }) => {
+                    const stat = document.createElement('div');
+                    stat.className = 'stat-item';
+                    stat.innerHTML = `\n                        <div class="stat-value">${value}</div>\n                        <div class="stat-desc">${description}</div>\n                    `;
+                    statsContainer.appendChild(stat);
+                });
             }
         }
     }
