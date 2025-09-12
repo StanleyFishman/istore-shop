@@ -149,6 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (titleEl) {
                 titleEl.textContent = title;
                 document.title = title;
+                titleEl.classList.add(`${itemId}-title`);
+
             }
             if (imageEl) {
                 imageEl.src = image;
