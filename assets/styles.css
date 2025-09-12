@@ -376,6 +376,29 @@ header .logo-text {
 
 .item-page .characteristics-stats .stat-value {
   font-size: 48px;
+  display: flex;
+  font-variant-numeric: tabular-nums;
+}
+
+.item-page .characteristics-stats .stat-value .odometer-digit {
+  position: relative;
+  overflow: hidden;
+  height: 1em;
+}
+
+.item-page .characteristics-stats .stat-value .digit-sequence {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(0);
+  transition: transform var(--odometer-duration, 2000ms) var(--odometer-easing, cubic-bezier(0.25, 0.1, 0.25, 1));
+}
+
+.item-page .characteristics-stats .stat-value .digit-sequence span {
+  height: 1em;
+  line-height: 1em;
 }
 
 .item-page .characteristics-stats .stat-desc {

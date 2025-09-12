@@ -1,5 +1,4 @@
 // Placeholder script for interactive features
-console.log('Store loaded');
 
 document.addEventListener('DOMContentLoaded', () => {
     const requestBtn = document.querySelector('.request-btn');
@@ -107,35 +106,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function animateValue(el, duration = 1500) {
-        const target = el.dataset.value;
-        const numbers = target.match(/\d+[.,]?\d*/g);
-        if (!numbers) return;
-        const parts = target.split(/\d+[.,]?\d*/g);
-        const targets = numbers.map(n => parseFloat(n.replace(',', '.')));
-        const decimals = numbers.map(n => (n.includes('.') || n.includes(',')) ? (n.split(/[.,]/)[1] || '').length : 0);
-        const startTime = performance.now();
+    const ODOMETER_DEFAULTS = {
+        duration: 2000,
+        easing: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        loops: 1
+    };
 
-        function update(now) {
-            const progress = Math.min((now - startTime) / duration, 1);
-            let text = '';
-            for (let i = 0; i < targets.length; i++) {
-                let val = targets[i] * progress;
-                let str = decimals[i] ? val.toFixed(decimals[i]) : Math.round(val).toString();
-                if (numbers[i].includes(',')) {
-                    str = str.replace('.', ',');
+    function prepareOdometer(el, options = {}) {
+        const { duration, easing, loops } = { ...ODOMETER_DEFAULTS, ...options };
+        const value = el.dataset.value || '';
+        const fragments = document.createDocumentFragment();
+        const digits = [];
+
+        for (const ch of value) {
+            if (/\d/.test(ch)) {
+                const digitWrapper = document.createElement('span');
+                digitWrapper.className = 'odometer-digit';
+                const seq = document.createElement('span');
+                seq.className = 'digit-sequence';
+                const total = loops * 10 + parseInt(ch, 10) + 1;
+                for (let i = 0; i < total; i++) {
+                    const d = document.createElement('span');
+                    d.textContent = i % 10;
+                    seq.appendChild(d);
                 }
-                text += parts[i] + str;
-            }
-            text += parts[parts.length - 1];
-            el.textContent = text;
-            if (progress < 1) {
-                requestAnimationFrame(update);
+                digitWrapper.appendChild(seq);
+                fragments.appendChild(digitWrapper);
+                digits.push({ seq, offset: total - 1 });
+            } else {
+                const span = document.createElement('span');
+                span.textContent = ch;
+                fragments.appendChild(span);
             }
         }
 
-        el.textContent = parts[0] + '0' + parts.slice(1).join('');
-        requestAnimationFrame(update);
+        el.innerHTML = '';
+        el.appendChild(fragments);
+        el.style.setProperty('--odometer-duration', `${duration}ms`);
+        el.style.setProperty('--odometer-easing', easing);
+        el._odometerDigits = digits;
+    }
+
+    function runOdometer(el) {
+        const digits = el._odometerDigits;
+        if (!digits) return;
+        requestAnimationFrame(() => {
+            digits.forEach(({ seq, offset }) => {
+                seq.style.transform = `translateY(-${offset * 100}%)`;
+            });
+        });
     }
 
     // Populate item page from ITEMS data if present
@@ -175,10 +194,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 const statValues = statsContainer.querySelectorAll('.stat-value');
+                statValues.forEach(el => prepareOdometer(el));
                 const statsObserver = new IntersectionObserver((entries, obs) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateValue(entry.target);
+                            runOdometer(entry.target);
                             obs.unobserve(entry.target);
                         }
                     });
