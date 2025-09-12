@@ -4,19 +4,19 @@ const ITEMS = {
     image: 'assets/images/item1_pic1.png'
   },
   item2: {
-    title: 'Барабанное оборудование',
-    image: 'assets/images/item2.png'
+    title: 'БАРАБАННОЕ ОБОРУДОВАНИЕ',
+    image: 'assets/images/item2_pic1.png'
   },
   item3: {
-    title: 'Компрессорное оборудование',
+    title: 'КОМПРЕССОРНОЕ ОБОРУДОВАНИЕ',
     image: 'assets/images/item3.png'
   },
   item4: {
-    title: 'Емкости и резервуары',
+    title: 'ЁМКОСТИ И РЕЗЕРВУАРЫ',
     image: 'assets/images/item4.png'
   },
   item5: {
-    title: 'Теплообменное оборудование',
+    title: 'ТЕПЛООБМЕННОЕ ОБОРУДОВАНИЕ',
     image: 'assets/images/airpods.png'
   },
   item6: {
