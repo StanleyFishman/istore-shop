@@ -248,7 +248,11 @@ header .logo-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  margin-top: 40px;
+}
+
+.item-page section {
+  scroll-margin-top: 80px;
 }
 
 .item-page .main-layout {
@@ -260,12 +264,12 @@ header .logo-text {
 
 .item-page .item-nav {
   position: absolute;
-  left: 100px;
-  top: 100px;
-  transform: none;
+  left: 40px;
+  top: 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+  z-index: 1;
 }
 
 .item-page .item-nav-btn {
@@ -280,13 +284,14 @@ header .logo-text {
   font-family: "Arial Narrow", Arial, sans-serif;
   font-size: 20px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .item-page .item-nav-btn:hover,
 .item-page .item-nav-btn:active {
   background: #000;
   color: #fff;
+  border-color: #fff;
 }
 
 .item-page .image-wrapper::before {

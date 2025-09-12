@@ -30,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const itemNavLinks = document.querySelectorAll('.item-nav-btn[href^="#"]');
+    itemNavLinks.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
