@@ -251,8 +251,8 @@ header .logo-text {
 }
 
 .item-page .characteristics-right img {
-  width: 170%;
-  max-width: 170%;
+  width: 255%;
+  max-width: 255%;
   height: auto;
 }
 
@@ -370,7 +370,7 @@ header .logo-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 40px;
+  gap: 20px;
   max-width: 1500px;
   margin: 0 auto;
 }
