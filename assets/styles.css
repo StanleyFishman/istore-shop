@@ -245,7 +245,14 @@ header .logo-text {
 }
 
 .item-page .image-wrapper img {
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  height: auto;
+}
+
+.item-page .characteristics-right img {
+  width: 170%;
+  max-width: 170%;
   height: auto;
 }
 
@@ -419,11 +426,7 @@ header .logo-text {
   justify-content: center;
 }
 
-.item-page .characteristics-right img {
-  width: 170%;
-  max-width: 170%;
-  height: auto;
-}
+
 
 @media (max-width: 768px) {
   .item-page .characteristics-container {
