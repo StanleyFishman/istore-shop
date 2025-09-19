@@ -29,7 +29,7 @@ const products = [
     id: "m3",
     name: "Чешуирователь Ultra 1200",
     badge: "Ni-сплав",
-    img: "assets/images/item3.png",
+    img: "https://images-porsche.imgix.net/-/media/0683EEF17ADA4D6ABAA276C65235E96C_29BC6C3357784A859B8A0E4B36EE15F8_CZ25W14IX0010-911-carrera-4-gts-side?w=2560&h=697&q=85&crop=faces%2Centropy%2Cedges&auto=format",
     specs: [
       "Разгон 0–100 кг/ч",
       "Мощность: 9.0 кВт",

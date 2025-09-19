@@ -39,6 +39,9 @@ html {
   --color-text: #333333;
   --color-primary: #0057B8;
   --color-accent: #FF6A00;
+  --page-max: 1440px;
+  --pad-inline: clamp(16px, 4vw, 96px);
+  --hero-max: 1200px;
 }
 
 body {
@@ -77,6 +80,13 @@ h2 {
 
 h3 {
   font-size: 24px;
+}
+
+.page,
+.main-layout {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--pad-inline);
 }
 
 header {
@@ -237,23 +247,27 @@ header .logo-text {
 }
 
 .item-page .image-wrapper {
-  display: flex;
-  justify-content: center;
   position: relative;
+  display: grid;
+  place-items: center;
   width: 100%;
-  overflow: visible;
+  min-height: clamp(240px, 40vw, 560px);
+  overflow: clip;
 }
 
 .item-page .image-wrapper img {
-  width: 100vw;
-  max-width: 100vw;
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, var(--hero-max));
   height: auto;
+  object-fit: contain;
 }
 
 .item-page .characteristics-right img {
-  width: 170%;
-  max-width: 170%;
+  width: min(100%, 720px);
   height: auto;
+  object-fit: contain;
 }
 
 .item-page .main-section {
@@ -306,31 +320,30 @@ header .logo-text {
   border-color: #fff;
 }
 
-.item-page .image-wrapper::before {
+.item-page .image-wrapper::after {
   content: "";
   position: absolute;
-  bottom: 35%;
   left: 50%;
+  bottom: 8%;
   transform: translateX(-50%);
-  width: 100vw;
-  height: 30%;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), #e0e0e0);
-  z-index: -1;
-  opacity: 0;
-  animation: gradientFade 4s ease forwards;
-}
-
-@keyframes gradientFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  width: min(100%, var(--hero-max));
+  height: clamp(40px, 10vw, 120px);
+  background: radial-gradient(60% 100% at 50% 50%, rgba(0, 0, 0, 0.25), transparent 70%);
+  opacity: 0.35;
+  filter: blur(6px);
+  pointer-events: none;
 }
 
 .item-page .item-title {
   text-align: center;
-  margin: 0;
-  margin-top: -80px;
+  margin: clamp(8px, 2.4vw, 24px) 0 0;
   padding: 0 0 20px;
-  font-size: 36px;
+  font-size: clamp(28px, 4.8vw, 56px);
+  line-height: 1.1;
+}
+
+.item-page .characteristics-stats .stat-value {
+  font-size: clamp(26px, 4.2vw, 54px);
 }
 
 .item-page .item-title.item1-title {

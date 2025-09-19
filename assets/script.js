@@ -138,33 +138,172 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
+    const HERO_SIZES = '(min-width: 1440px) 1200px, 92vw';
+    const createSrcSet = (base, widths, extension) => {
+        const cleanExt = extension.startsWith('.') ? extension.slice(1) : extension;
+        return widths
+            .filter((value, index, array) => array.indexOf(value) === index)
+            .sort((a, b) => a - b)
+            .map(width => `${base}-${width}.${cleanExt} ${width}w`)
+            .join(', ');
+    };
+
     // Populate item page from ITEMS data if present
     if (document.body.classList.contains('item-page') && typeof ITEMS !== 'undefined') {
         const params = new URLSearchParams(window.location.search);
         const itemId = params.get('id');
         if (itemId && ITEMS[itemId]) {
-            const { title, image, characteristics } = ITEMS[itemId];
+            const { title, image, hero, detailImage, characteristics } = ITEMS[itemId];
             const titleEl = document.querySelector('.item-title');
-            const imageEl = document.querySelector('#image-wrapper img');
+            const heroPicture = document.querySelector('#hero-picture');
+            const heroImageEl = heroPicture ? heroPicture.querySelector('img') : null;
+            const heroSourceWebp = heroPicture ? heroPicture.querySelector('source[type="image/webp"]') : null;
             if (titleEl) {
                 titleEl.textContent = title;
                 document.title = title;
                 titleEl.classList.add(`${itemId}-title`);
 
             }
-            if (imageEl) {
-                imageEl.src = image;
-                imageEl.alt = itemId;
+            if (heroImageEl) {
+                heroImageEl.alt = title;
+            }
+
+            if (hero && heroImageEl) {
+                const { base, type = 'png', widths = [], src, srcset, sources } = hero;
+                const cleanExt = typeof type === 'string' && type.startsWith('.') ? type.slice(1) : type;
+                const widthValues = Array.isArray(widths) ? widths : [];
+                const hasBase = typeof base === 'string' && base.length > 0;
+                const sortedWidths = hasBase
+                    ? widthValues
+                        .filter((value, index, array) => array.indexOf(value) === index)
+                        .sort((a, b) => a - b)
+                    : [];
+                const hasGeneratedWidths = hasBase && sortedWidths.length > 0;
+
+                if (heroSourceWebp) {
+                    const webpConfig = sources && sources.webp;
+                    if (typeof webpConfig === 'string' && webpConfig.trim()) {
+                        heroSourceWebp.srcset = webpConfig;
+                    } else if (webpConfig && typeof webpConfig === 'object') {
+                        const { srcset: webpSrcset = '', sizes: webpSizes } = webpConfig;
+                        if (webpSrcset.trim()) {
+                            heroSourceWebp.srcset = webpSrcset;
+                            if (webpSizes) {
+                                heroSourceWebp.sizes = webpSizes;
+                            }
+                        } else {
+                            heroSourceWebp.removeAttribute('srcset');
+                            heroSourceWebp.removeAttribute('sizes');
+                            heroSourceWebp.remove();
+                        }
+                    } else if (hasGeneratedWidths) {
+                        heroSourceWebp.srcset = createSrcSet(base, sortedWidths, 'webp');
+                    } else {
+                        heroSourceWebp.removeAttribute('srcset');
+                        heroSourceWebp.removeAttribute('sizes');
+                        heroSourceWebp.remove();
+                    }
+                }
+
+                let finalSrc = typeof src === 'string' && src.trim() ? src : '';
+                let finalSrcset = typeof srcset === 'string' && srcset.trim() ? srcset : '';
+
+                if (hasGeneratedWidths) {
+                    const generatedSrcset = createSrcSet(base, sortedWidths, cleanExt);
+                    if (!finalSrcset) {
+                        finalSrcset = generatedSrcset;
+                    }
+                    if (!finalSrc) {
+                        const preferredWidth = sortedWidths.find(width => width >= 1200) ?? sortedWidths[sortedWidths.length - 1];
+                        finalSrc = `${base}-${preferredWidth}.${cleanExt}`;
+                    }
+                } else if (!finalSrc && hasBase) {
+                    finalSrc = `${base}.${cleanExt}`;
+                }
+
+                if (!finalSrc && image) {
+                    finalSrc = image;
+                }
+
+                if (finalSrc) {
+                    heroImageEl.src = finalSrc;
+                } else {
+                    heroImageEl.removeAttribute('src');
+                }
+
+                if (finalSrcset) {
+                    heroImageEl.srcset = finalSrcset;
+                } else {
+                    heroImageEl.removeAttribute('srcset');
+                }
+
+                const hasWidthDescriptor = typeof finalSrcset === 'string' && /\s\d+w/.test(finalSrcset);
+                const webpSrcsetValue = heroSourceWebp ? heroSourceWebp.getAttribute('srcset') || '' : '';
+                const webpHasWidthDescriptor = /\s\d+w/.test(webpSrcsetValue);
+                if (hasWidthDescriptor) {
+                    heroImageEl.sizes = HERO_SIZES;
+                    if (heroSourceWebp && webpSrcsetValue) {
+                        if (webpHasWidthDescriptor) {
+                            heroSourceWebp.sizes = heroSourceWebp.getAttribute('sizes') || HERO_SIZES;
+                        } else {
+                            heroSourceWebp.removeAttribute('sizes');
+                        }
+                    }
+                } else {
+                    heroImageEl.removeAttribute('sizes');
+                    if (heroSourceWebp) {
+                        heroSourceWebp.removeAttribute('sizes');
+                    }
+                }
+            } else if (heroImageEl && image) {
+                heroImageEl.src = image;
+                heroImageEl.srcset = image;
+                heroImageEl.removeAttribute('sizes');
+                if (heroSourceWebp) {
+                    heroSourceWebp.removeAttribute('srcset');
+                    heroSourceWebp.removeAttribute('sizes');
+                    heroSourceWebp.remove();
+                }
             }
 
             const charImgEl = document.querySelector('#characteristics img');
             if (charImgEl) {
-                let secondaryImage = image.replace(/_pic1(\.[a-z]+)$/i, '_pic2$1');
-                if (secondaryImage === image) {
-                    secondaryImage = image.replace(/(\.[a-z]+)$/i, '_pic2$1');
+                let secondaryImage = detailImage || '';
+
+                if (!secondaryImage && typeof image === 'string') {
+                    secondaryImage = image.replace(/_pic1(\.[a-z]+)$/i, '_pic2$1');
+                    if (secondaryImage === image) {
+                        secondaryImage = image.replace(/(\.[a-z]+)$/i, '_pic2$1');
+                    }
                 }
-                charImgEl.src = secondaryImage;
-                charImgEl.alt = itemId + ' details';
+
+                if ((!secondaryImage || secondaryImage === image) && hero) {
+                    const { base, type = 'png', widths = [], src, preview } = hero;
+                    if (preview && typeof preview === 'string') {
+                        secondaryImage = preview;
+                    } else if (src && typeof src === 'string' && src.trim()) {
+                        secondaryImage = src;
+                    } else if (base && typeof base === 'string') {
+                        const cleanExt = type.startsWith('.') ? type.slice(1) : type;
+                        const widthValues = Array.isArray(widths) ? widths : [];
+                        const sortedWidths = widthValues
+                            .filter((value, index, array) => array.indexOf(value) === index)
+                            .sort((a, b) => a - b);
+                        const previewWidth = sortedWidths.find(width => width >= 800) ?? sortedWidths[0];
+                        secondaryImage = previewWidth
+                            ? `${base}-${previewWidth}.${cleanExt}`
+                            : `${base}.${cleanExt}`;
+                    }
+                }
+
+                if (!secondaryImage && heroImageEl) {
+                    secondaryImage = heroImageEl.currentSrc || heroImageEl.src;
+                }
+
+                if (secondaryImage) {
+                    charImgEl.src = secondaryImage;
+                    charImgEl.alt = `${title} details`;
+                }
             }
 
             const statsContainer = document.querySelector('.characteristics-stats');
