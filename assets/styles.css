@@ -259,6 +259,7 @@ header .logo-text {
   position: relative;
   z-index: 1;
   display: block;
+  margin-inline: auto;
   width: min(100%, var(--hero-max));
   height: auto;
   object-fit: contain;
