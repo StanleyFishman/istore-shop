@@ -30,6 +30,12 @@ function createFixedPicture(width) {
   };
 }
 
+function createLocalImage(path) {
+  return {
+    jpg: path,
+  };
+}
+
 const MODELS = {
   coupe: {
     name: "GIR ROS 600",
@@ -39,7 +45,7 @@ const MODELS = {
     hero: {
       alt: "Купе GIR ROS 600 в движении",
       sizes: "(min-width: 1200px) 60vw, (min-width: 768px) 80vw, 100vw",
-      ...createResponsivePicture(HERO_WIDTHS)
+      ...createLocalImage("assets/images/item1_pic1.png")
     },
     kpi: [
       { n: "4,1", u: "с до 100 км/ч" },
@@ -53,7 +59,7 @@ const MODELS = {
       image: {
         alt: "Фронтальный вид купе GIR ROS 600",
         sizes: "(min-width: 1200px) 28vw, (min-width: 768px) 50vw, 80vw",
-        ...createFixedPicture(OVERVIEW_WIDTH)
+        ...createLocalImage("assets/images/item1_pic2.png")
       },
       stats: [
         { label: "Вес", value: "1 480 кг" },
@@ -99,7 +105,7 @@ const MODELS = {
       image: {
         alt: "Купе GIR ROS на треке",
         sizes: "(min-width: 1200px) 70vw, 100vw",
-        ...createFixedPicture(MEDIA_WIDTH)
+        ...createLocalImage("assets/images/item1_pic3.png")
       }
     }
   },
