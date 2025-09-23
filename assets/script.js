@@ -131,6 +131,49 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
 
+        const miniHeroElement = document.querySelector('.mini-hero-swiper');
+        if (miniHeroElement) {
+            const NORMAL_SPEED = 6000;
+            const SLOW_SPEED = NORMAL_SPEED * 2;
+
+            const miniHeroSwiper = new Swiper(miniHeroElement, {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                loop: true,
+                allowTouchMove: false,
+                spaceBetween: 16,
+                speed: NORMAL_SPEED,
+                autoplay: {
+                    delay: 0,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: false,
+                },
+                pagination: {
+                    el: miniHeroElement.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+            });
+
+            const applyMiniHeroSpeed = (speed) => {
+                if (miniHeroSwiper.params.speed === speed) {
+                    return;
+                }
+                miniHeroSwiper.params.speed = speed;
+                miniHeroSwiper.setTransition(speed);
+            };
+
+            const handleEnter = () => applyMiniHeroSpeed(SLOW_SPEED);
+            const handleLeave = () => applyMiniHeroSpeed(NORMAL_SPEED);
+
+            miniHeroElement.addEventListener('mouseenter', handleEnter);
+            miniHeroElement.addEventListener('mouseleave', handleLeave);
+
+            miniHeroSwiper.slides.forEach((slide) => {
+                slide.addEventListener('mouseenter', handleEnter);
+                slide.addEventListener('mouseleave', handleLeave);
+            });
+        }
+
         new Swiper('.top-sales-swiper', {
             slidesPerView: 1,
             spaceBetween: 30,
