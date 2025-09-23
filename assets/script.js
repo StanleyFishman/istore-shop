@@ -154,12 +154,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
             });
 
+            const restartMiniHeroAutoplay = () => {
+                if (!miniHeroSwiper.autoplay) {
+                    return;
+                }
+                miniHeroSwiper.autoplay.stop();
+                miniHeroSwiper.autoplay.start();
+            };
+
             const applyMiniHeroSpeed = (speed) => {
                 if (miniHeroSwiper.params.speed === speed) {
                     return;
                 }
                 miniHeroSwiper.params.speed = speed;
                 miniHeroSwiper.setTransition(speed);
+                miniHeroSwiper.wrapperEl.style.transitionDuration = `${speed}ms`;
+                restartMiniHeroAutoplay();
             };
 
             const handleEnter = () => applyMiniHeroSpeed(SLOW_SPEED);
