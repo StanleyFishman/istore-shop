@@ -91,15 +91,6 @@
     </section>
     <section id="configurator" class="configurator-section">
       <div class="configurator-page">
-        <header class="page-head">
-          <div class="brand">
-            <span class="brand-name">GIR ROS</span>
-            <span class="brand-tagline">Industrial Engineering</span>
-          </div>
-          <button class="compare-indicator" type="button" aria-live="polite">
-            Сравнить <span class="compare-count" id="compare-count">0</span>
-          </button>
-        </header>
         <div class="page-body">
           <div class="configurator-container">
             <h2 class="page-title">Конфигуратор</h2>
@@ -217,7 +208,12 @@
                     </div>
                   </section>
                 </div>
-                <button class="reset" type="button">Сбросить фильтры</button>
+                <div class="filters-actions">
+                  <button class="reset" type="button">Сбросить фильтры</button>
+                  <button class="compare-indicator" type="button" aria-live="polite">
+                    Сравнить <span class="compare-count" id="compare-count">0</span>
+                  </button>
+                </div>
               </aside>
               <section class="cards-area">
                 <div class="cards-head">
@@ -236,8 +232,8 @@
     <section id="model3d" class="model3d-section">
       <div class="model3d-wrapper">
         <div class="model3d-heading">
-          <h2>3D-модель</h2>
-          <p>Запустите кинематографичную визуализацию, чтобы рассмотреть устройство в деталях.</p>
+          <!-- <h2>3D-модель</h2>
+          <p>Запустите кинематографичную визуализацию, чтобы рассмотреть устройство в деталях.</p> -->
         </div>
         <div class="model3d-player">
           <video

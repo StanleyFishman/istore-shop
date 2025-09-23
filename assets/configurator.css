@@ -133,7 +133,7 @@
 }
 
 .page-body {
-  padding: 48px 16px 80px;
+  padding: 48px 16px 0px;
 }
 
 .configurator-container {
@@ -168,6 +168,21 @@
   gap: 24px;
   max-height: calc(100vh - 48px);
   min-height: 0;
+}
+
+.filters-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filters-actions .reset,
+.filters-actions .compare-indicator {
+  flex: 1 1 160px;
+}
+
+.filters-actions .compare-indicator {
+  justify-content: center;
 }
 
 .filters-inner {
@@ -539,14 +554,16 @@
 }
 
 @media (max-width: 640px) {
-  .page-head {
+  .filters-actions {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
   }
 
-  .compare-indicator {
-    align-self: stretch;
-    justify-content: center;
+  .filters-actions .reset,
+  .filters-actions .compare-indicator {
+    flex-basis: 100%;
+  }
+
+  .filters-actions .compare-indicator {
+    width: 100%;
   }
 }
