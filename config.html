@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конфигуратор GIR ROS 600</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="config.css">
+</head>
+<body>
+  <header class="header" data-reveal="">
+    <div class="page">
+      <a class="brand" href="/" aria-label="Главная GIR ROS">GIR ROS</a>
+      <nav class="nav" aria-label="Главная навигация">
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#catalog">Catalog</a></li>
+          <li><a href="#tech">Tech</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#form">Оставить заявку</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero" aria-labelledby="title">
+      <div class="page">
+        <div class="mark" id="mark" aria-hidden="true">600</div>
+        <picture id="heroPicture" aria-hidden="false">
+            <img
+    src="assets/images/item1_pic1.png"
+    alt="GIR ROS 600"
+    loading="eager"
+    decoding="async">
+        </picture>
+        <h1 id="title">GIR ROS 600</h1>
+        <p class="price" id="price">от 19 600 000 ₽</p>
+        <ul class="kpis" id="kpis" aria-label="Ключевые показатели"></ul>
+        <div class="segments" id="segments" role="tablist" aria-label="Тип кузова"></div>
+      </div>
+    </section>
+
+    <section class="section overview" id="menu" aria-labelledby="overviewTitle">
+      <div class="page overview__content">
+        <picture id="overviewPicture" class="overview__media">
+          <source type="image/webp" srcset="https://images-porsche.imgix.net/-/media/5D0BB7E042BD4C9DBEF84B5E70482520_73AA748306934B0C9CE20E32231DFCE2_CZ25W01IX0011911-carrera-front?w=1200&q=85&auto=format&fm=webp" sizes="(min-width: 1024px) 40vw, 80vw">
+          <img src="https://images-porsche.imgix.net/-/media/5D0BB7E042BD4C9DBEF84B5E70482520_73AA748306934B0C9CE20E32231DFCE2_CZ25W01IX0011911-carrera-front?w=1200&q=85&auto=format&fm=jpg" alt="Фронтальный вид модели" loading="lazy">
+        </picture>
+        <div class="overview__details">
+          <h2 id="overviewTitle">Премиальный силуэт</h2>
+          <p id="overviewText">Аэродинамический профиль GIR ROS 600 выстроен для точного баланса между скоростью, устойчивостью и эстетикой. Каждая линия работает на производительность.</p>
+          <div class="overview__stats" id="overviewStats" aria-label="Параметры модели"></div>
+        </div>
+        <div class="overview__cta">
+          <span class="overview__price" id="overviewPrice">от 19 600 000 ₽</span>
+          <a class="cta secondary" href="#form">Подробнее</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section options" id="catalog" aria-labelledby="optionsTitle">
+      <div class="page">
+        <div class="section__head">
+          <h2 id="optionsTitle">Опции персонализации</h2>
+          <p>Подберите комплектации, отражающие ваши привычки вождения и стиль.</p>
+        </div>
+        <div class="cards" id="options"></div>
+      </div>
+    </section>
+
+    <section class="section media" id="tech" aria-labelledby="mediaTitle">
+      <div class="page">
+        <div class="media__wrap">
+          <picture id="mediaPicture">
+            <source type="image/webp" srcset="https://images-porsche.imgix.net/-/media/5D0BB7E042BD4C9DBEF84B5E70482520_73AA748306934B0C9CE20E32231DFCE2_CZ25W01IX0011911-carrera-front?w=1600&q=85&auto=format&fm=webp" sizes="(min-width: 1024px) 70vw, 100vw">
+            <img src="https://images-porsche.imgix.net/-/media/5D0BB7E042BD4C9DBEF84B5E70482520_73AA748306934B0C9CE20E32231DFCE2_CZ25W01IX0011911-carrera-front?w=1600&q=85&auto=format&fm=jpg" alt="Динамичный кадр модели GIR ROS" loading="lazy">
+          </picture>
+          <div class="media__caption">
+            <h2 id="mediaTitle">Динамика в каждом кадре</h2>
+            <p id="mediaText">Фирменная платформа GIR ROS раскрывает всю мощь линейки 600 на треке и в городе.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="page">
+      <p>© <span aria-hidden="true">GIR ROS</span> <span class="visually-hidden">Все права защищены GIR ROS</span></p>
+      <a href="mailto:hello@girros.example" class="footer__link">hello@girros.example</a>
+    </div>
+  </footer>
+
+  <script type="module" src="config.js"></script>
+</body>
+</html>

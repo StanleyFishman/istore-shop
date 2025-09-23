@@ -267,7 +267,7 @@ header .logo-text {
 
 .item-page .characteristics-right img {
   width: min(100%, 720px);
-  height: auto;
+  height: fit-content;
   object-fit: contain;
 }
 
