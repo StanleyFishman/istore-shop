@@ -52,6 +52,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    const modelVideo = document.getElementById('model3d-video');
+    const modelToggle = document.querySelector('.model3d-toggle');
+    if (modelVideo && modelToggle) {
+        let userPaused = false;
+
+        const updateToggleState = () => {
+            const isPlaying = !modelVideo.paused && !modelVideo.ended;
+            modelToggle.dataset.playing = String(isPlaying);
+            modelToggle.setAttribute('aria-label', isPlaying ? 'Пауза' : 'Воспроизвести');
+            modelToggle.setAttribute('aria-pressed', String(isPlaying));
+        };
+
+        const attemptPlay = () => {
+            const playPromise = modelVideo.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(() => {
+                    modelVideo.pause();
+                    updateToggleState();
+                });
+            }
+        };
+
+        modelToggle.addEventListener('click', () => {
+            if (modelVideo.paused || modelVideo.ended) {
+                userPaused = false;
+                attemptPlay();
+            } else {
+                userPaused = true;
+                modelVideo.pause();
+            }
+        });
+
+        modelVideo.addEventListener('play', () => {
+            userPaused = false;
+            updateToggleState();
+        });
+        modelVideo.addEventListener('pause', updateToggleState);
+        modelVideo.addEventListener('ended', updateToggleState);
+
+        if ('IntersectionObserver' in window) {
+            const modelSection = document.getElementById('model3d');
+            if (modelSection) {
+                const visibilityObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            if (!userPaused) {
+                                attemptPlay();
+                            }
+                        } else if (!modelVideo.paused) {
+                            modelVideo.pause();
+                        }
+                    });
+                }, { threshold: 0.45 });
+                visibilityObserver.observe(modelSection);
+            }
+        }
+
+        if (modelVideo.autoplay) {
+            attemptPlay();
+        } else {
+            updateToggleState();
+        }
+    }
+
     if (window.Swiper) {
         new Swiper('.hero-swiper', {
             slidesPerView: 'auto',

@@ -233,9 +233,37 @@
         </div>
       </div>
     </section>
-    <section id="model3d">
-      <h2>3D-модель</h2>
-      <p>Интерактивная 3D-модель появится здесь.</p>
+    <section id="model3d" class="model3d-section">
+      <div class="model3d-wrapper">
+        <div class="model3d-heading">
+          <h2>3D-модель</h2>
+          <p>Запустите кинематографичную визуализацию, чтобы рассмотреть устройство в деталях.</p>
+        </div>
+        <div class="model3d-player">
+          <video
+            id="model3d-video"
+            class="model3d-video"
+            src="assets/videos/model-loop.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            poster="assets/images/model3d-poster.jpg"
+          >
+            Ваш браузер не поддерживает воспроизведение видео.
+          </video>
+          <button class="model3d-toggle" type="button" aria-label="Пауза" data-playing="true">
+            <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="6" y="5" width="4" height="14" rx="1" />
+              <rect x="14" y="5" width="4" height="14" rx="1" />
+            </svg>
+            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5.5v13l10-6.5-10-6.5Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </section>
     <div id="request-modal" class="modal">
       <div class="modal-content">
